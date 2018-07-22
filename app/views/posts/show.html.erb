@@ -1,0 +1,41 @@
+<div class="col-md-12" style="background:white">
+	<div class="blogWrapper col-md-8 col-md-offset-2">
+		<div style="padding-left:45px;padding-right:45px;">
+			<div class="post=container">
+				<div class="post-thumb"></div>
+				<div class="post-content">
+					<p class="timeAgo">Posted <%= time_ago_in_words(@post.created_at) %> ago</p>
+				</div>
+			</div>
+
+			<div>
+				<h1><%= raw @translated_title %></h1>
+			</div>
+			<div>
+				<%= raw @translated_body %>
+			</div>
+			<hr>
+			<%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-default' %>
+			<%= link_to "Delete", post_path(@post),
+					method: :delete,
+					data: {confirm: 'Are you sure?'},
+					:class => 'btn btn-danger' %>
+			<hr>
+
+			<%= render '/responses/responses' %>
+			<%= render '/responses/form' %>
+
+			<h3>Add An Answer</h3>
+		<%= form_for([@post, @post.responses.build]) do |f| %>
+			<p>
+				<%= f.label :body %><br>
+				<%= f.cktext_area(:body, {:class => 'form-control'}) %>
+			</p>
+			<p>
+				<%= f.submit({:class => 'btn btn-default'}) %>
+			</p>
+		<% end %>
+
+		</div>
+	</div>
+</div>

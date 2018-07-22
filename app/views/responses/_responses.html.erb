@@ -1,0 +1,8 @@
+<h3>Answers</h3>
+<% @post.responses.each do |response| %>
+	<div class="well">
+		<p><%= raw response.body %> <%= link_to '[X]', [response.post, response],
+			method: :delete,
+			data: {confirm: 'Are you sure?'}%></p>
+	</div>
+<% end %>
