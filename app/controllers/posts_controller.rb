@@ -55,7 +55,7 @@ class PostsController < ApplicationController
 		host = 'https://api.cognitive.microsofttranslator.com'
 		path = '/translate?api-version=3.0'
 
-		# Translate to German and Italian.
+		# Translate to German.
 		params = '&to=de'
 
 		uri = URI (host + path + params)
