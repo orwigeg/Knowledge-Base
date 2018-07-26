@@ -50,8 +50,9 @@ class PostsController < ApplicationController
 	end
 
 	private def translate_text(text)
-		key = 'c42555b0acce4d2ca6ed329666a21acc'
-
+		#Currently invalid
+		key = 'c42555b0acce4d2ca6ed329666a21acc' 
+		
 		host = 'https://api.cognitive.microsofttranslator.com'
 		path = '/translate?api-version=3.0'
 
